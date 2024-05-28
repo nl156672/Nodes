@@ -119,8 +119,8 @@ console.log(' Der Mehrwertsteuersatz für den Artikel ' + artikel + ' beträgt '
 console.log ('Aufgabe 10');
 console.log(' Hausaufgabe :  Eigene Aufgabe mit Wenn-Funktion / if-else-Ausdruck ');
 
-console.log('Wenn der Gesamtbetrag des Einkaufs grösser oder gleich 100€ ist, beträgt der Rabatt 20%')
-console.log('Ansonsten gibt es keinen Rabatt')
+console.log('Wenn der Gesamtbetrag des Einkaufs grösser oder gleich 100€ ist, beträgt der Rabatt 20%');
+console.log('Ansonsten gibt es keinen Rabatt');
 
 // die Variabeln werden deklariert und der Gesamtbetrag mit dem Wert 120 initalisiert.
 let Gesamtbetrag = 120;
@@ -136,8 +136,8 @@ if (Gesamtbetrag >= 100) {
 
 console.log('Aufgabe 11');
 
-console.log('Wenn der Gesamtbetrag des Einkaufs grösser oder gleich 100€ ist, beträgt der Rabatt 20%')
-console.log('wenn der Gesamtbetrag des Einkaufs zwischen 50 und kleiner 100€ ist, beträgt der Rabatt 10%')
+console.log('Wenn der Gesamtbetrag des Einkaufs grösser oder gleich 100€ ist, beträgt der Rabatt 20%');
+console.log('wenn der Gesamtbetrag des Einkaufs zwischen 50 und kleiner 100€ ist, beträgt der Rabatt 10%');
 console.log('Ansonsten gibt es keinen Rabatt')
 
 Gesamtbetrag = 120;
@@ -174,17 +174,17 @@ if ( Einkaufswert >= 200 ) {
 console.log('Bei einem einkaufswert von ' + Einkaufswert +' euro betragen die versandkosten ' + versandkosten + ' Euro.');
 
 console.log('Aufgabe 13')
-console.log('Frauen ab 18 zahlen 10 euro Eintritt. Männer ab 18 zahlen 15 Euro. Minderjährige zahlen 6 Euro')
+console.log('Frauen ab 18 zahlen 10 euro Eintritt. Männer ab 18 zahlen 15 Euro. Minderjährige zahlen 6 Euro');
 
 let Eintritt;
 let alter = 10;
 let geschlecht = 'm';
 
-if (geschlecht === 'w' && Alter >=18){
+if (geschlecht === 'w' && alter >=18){
     Eintritt === 10;
 }
 
-if (geschlecht === 'm' && Alter >=18){
+if (geschlecht === 'm' && alter >=18){
     Eintritt === 15;
 }
 
@@ -192,4 +192,4 @@ if (alter<18){
     Eintritt === 6;
 }
 
-console.log('Bei einem ALter von ' + alter + ' Jahren zahlt eine Person mit geschlecht ' + geschlecht +'#')
+console.log('Bei einem ALter von ' + alter + ' Jahren zahlt eine Person mit geschlecht ' + geschlecht +'#');

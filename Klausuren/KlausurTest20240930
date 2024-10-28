@@ -24,6 +24,10 @@ class Würfel{
 }
 
 // Deklaration(= Bekanntmachung), Instanzzieerung (=Speicherzellen reservieren)
+// let wuerfel mit kleinem w
+// new Wuerfel mit grossem W
+
+
 let würfel = new würfel ()
 
 // Initialisierung
@@ -79,7 +83,8 @@ class Zeugnisse{
         this.Fehlstunden
         this.unenstuldigtefehlstunden
         this.Sprache
-        this.Naturwissenschaften
+        this.
+        this.klassenbeste
     }
 }
 
@@ -114,7 +119,16 @@ Zeugnisse.Fehlstunden = 4
 // let x = Math.min(5, 10); --> Es werden 5 und 10 verglichen. x nimmt jetzt den Wert 5 an, da 5 der niedrigste der kommaseparierten Werte ist.
 
 
+let lisa = 3  // bei lokalen variabeln mit kleinbuchstaben beginnen
+let tom = 4
+let max = 5
 
+if(durschnitt < Math.min(lisa, tom, max)){
+    zeugnis.klassnbeste = true;
+    console.log("Lisa hat einen Durchschnitt von " + durschnitt + ". Sie ist nicht Klassenbeste.")
+}else{
+    zeugnis.klassenbeste = false;
+}
 
 
 
@@ -136,6 +150,20 @@ console.log("Aufgabe 3")
 // 3a)
 // Deklarieren, Instanziieren Sie ein Objekt mit allen genannten Eigenschaften. 
 
+classProdukt {
+    constructor(){
+        this.Art                           // Eigenschaften beginnen immer mit Grossbuchstaben, Kamelhöckernotation benutzen (d.h Wörter mit Grossbuchstaben verbinden, keine Leerzeichen/Bindestriche)
+        this. Mehrwertsteuersatz 
+        this.Mehrwertssteuer 
+        this.NettoRechnungsbetrag 
+        this,Bruttorechnungsbetrag 
+        this.Skonto
+        this.Skontosatz
+        this.Zahlungsbetrag 
+        this.Rabatt 
+        this.Rabatsatz 
+    }
+}
 
 
 
@@ -143,11 +171,27 @@ console.log("Aufgabe 3")
 // Initialisieren Sie Ihr Objekt mit den gegebenen Werten. 
 // Geben Sie die einen Anwortsatz auf der Konsole aus.
 
+produkt.NettoRechnungsbetrag = 370    //Bitte kein Komma sonder den Punkt für Nachkommastellen verwenden 
+                                      //Bitte keine Einheit dahinter schreiben 
+
+produkt.Art = "Zeitung"
+if(produkt.Art === "Zeitung" || produkt.Art === "Lebensmittel" || produkt.Art === "Buch"){
+   produkt.Mehrwertsteuersatz = 0.07 
+}else{
+    produkt.Mehrwertsteuersatz = 0.019
+}
+
+console.log("Der Mehrwertsteuersatz beträgt: " + produkt.Mehrwertsteuersatz )
+console.log("Produktart: " + produkt.art)
+
 
 
 // 3c)
 // Berechnen Sie die MwSt in einer sprechenden Variablen. Geben Sie einen Anwortsatz auf der Konsole aus.
 
+produkt.Mehrwertssteuer = produkt.NettoRechnungsbetrag*produkt.Mehrwertsteuersatz
+
+console.log("Die Mehrwertsteuer beträgt " + produkt.Mehrwertssteuer)
 
 
 
@@ -157,6 +201,7 @@ console.log("Aufgabe 3")
 // Wenn die Produktart sich ändert, muss Ihre Berechnung sich anpassen.
 // Geben Sie den Wert in einen Anwortsatz auf der Konsole aus.
 
+produkt.Bruttorechnungsbetrag = produkt.NettoRechnungsbetrag + produkt.Mehrwertssteuer
 
 
 
@@ -175,6 +220,10 @@ console.log("Aufgabe 3")
 //                                  500 | 2
 
 // Berechnen Sie das Skonto und geben Sie das Ergebnis auf der Konsole aus.
+
+produkt.Skonto 
+
+if 
 
 console.log("Aufgabe 4") // NUR KLAUSURSCHREIBER
 

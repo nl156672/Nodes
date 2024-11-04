@@ -36,5 +36,7 @@ console.log(`Running on http://${HOST}:${PORT}`);
 // require('./Uebungen/01-grundlagen.js');
 // require('./Uebungen/02-boolean.js');
 // require('./Uebungen/03-objekte.js');
-require('./Klausuren/ KlausurTest20240930.js')
+// require('./Klausuren/ KlausurTest20240930.js')
+require('./Uebungen/04-funktionen.js');
+
 

@@ -82,23 +82,3 @@ console.log("=========")
 
 // Funktionen können auch innerhalbvon Klassen bestimmt werden
 // Beipiel: Kredit 
-
-class Kredit{
-    constructor(){
-        this.Laufzeit
-        this.Betrag
-        this.Zinssatz
-    }
-
-
-    console.log("Gesamtkosten: " + kredit.berechneGesamtkostenAmEndeDerLaufzeit())
-
-    berechneGesamtkostenAmEndeDerLaufzeit(){
-        return this.Betrag + this.Betrag * this.Zinssatz
-    }
-}
-
-    let kredit = new Kredit 
-    kredit.Betrag = 100
-    kredit.Laufzeit = 2
-    kredit.Zinssatz = 0.1

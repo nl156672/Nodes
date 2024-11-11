@@ -8,11 +8,18 @@
 const express = require('express');
 
 // Constants
-const PORT = 3000;
+const PORT = 3001;
 const HOST = '0.0.0.0';
 
 // App
 const app = express();
+// Es wird der App bekanntgegeben, wo die Styles ztu finden sind
+
+app.use(express.static('public'))
+
+
+
+
 app.get('/', (req, res) => {
 	//res ist die Anwort des Severs an den Browser.
 	//send() ist die Anweisung etwas an den Browser zu schicken.
@@ -37,6 +44,6 @@ console.log(`Running on http://${HOST}:${PORT}`);
 // require('./Uebungen/02-boolean.js');
 // require('./Uebungen/03-objekte.js');
 // require('./Klausuren/ KlausurTest20240930.js')
-require('./Uebungen/04-funktionen.js');
+// require('./Uebungen/04-funktionen.js');
 
 

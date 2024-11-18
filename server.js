@@ -10,7 +10,7 @@ const express = require('express');
 // Die Anweisungen werden von oben nach unten abgearbeitet. Der Wert 3000 wird von rechts nach links 
 // zugewiesen an die Konstante namens PORT. Das einfache Gleichheitszeichen lässt sich also übersetzen
 // mit "... wird zugewiesen an ..."
-const PORT = 3000;
+const PORT = 3001;
 
 // Der Wert '0.0.0.0' wird zugewiesen an eine Konstante namens HOST 
 const HOST = '0.0.0.0';
@@ -40,12 +40,27 @@ app.get('/', (req, res) => {
 // Wenn im Browser die Adresse .../agb aufgerufen wird, wird der Server aufgefordert,
 // die angefragte Seite an den Browser zurückzugeben.
 // Der Server arbeitet dazu die Funktion app.get('agb)... ab.
-app.get('agb', (req, res) => {
+app.get('/agb', (req, res) => {
 
 	// Der Server gibt die gerenderte EJS-Seite an den 
 	// Browser zurück.
 	res.render('agb.ejs',{});
 });
+
+
+app.get('/hilfe', (req, res) => {
+	res.render('hilfe.ejs',{});
+});
+
+app.get('/postfach', (req, res) => {
+	res.render('postfach.ejs',{});
+});
+
+app.get('/profil', (req, res) => {
+	res.render('profil.ejs',{});
+});
+
+
 
 // Mit listen() wird der Server angewiesen, auf den angegebenen Host und
 // Port zu lauschen.  

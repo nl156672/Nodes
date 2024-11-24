@@ -10,7 +10,7 @@ const express = require('express');
 // Die Anweisungen werden von oben nach unten abgearbeitet. Der Wert 3000 wird von rechts nach links 
 // zugewiesen an die Konstante namens PORT. Das einfache Gleichheitszeichen lässt sich also übersetzen
 // mit "... wird zugewiesen an ..."
-const PORT = 3001;
+const PORT = 3000;
 
 // Der Wert '0.0.0.0' wird zugewiesen an eine Konstante namens HOST 
 const HOST = '0.0.0.0';
@@ -47,17 +47,36 @@ app.get('/agb', (req, res) => {
 	res.render('agb.ejs',{});
 });
 
-
 app.get('/hilfe', (req, res) => {
 	res.render('hilfe.ejs',{});
+});
+
+app.get('/kontouebersicht', (req, res) => {
+	res.render('kontenuebersicht.ejs',{});
+});
+
+app.get('/profil', (req, res) => {
+	res.render('profil.ejs',{});
 });
 
 app.get('/postfach', (req, res) => {
 	res.render('postfach.ejs',{});
 });
 
-app.get('/profil', (req, res) => {
-	res.render('profil.ejs',{});
+app.get('/kreditBeantragen', (req, res) => {
+	res.render('kreditBeantragen.ejs',{});
+});
+
+app.get('/ueberweisungAusfuehren', (req, res) => {
+	res.render('ueberweisungAusfuehren.ejs',{});
+});
+
+app.get('/geldAnlegen', (req, res) => {
+	res.render('geldAnlegen.ejs',{});
+});
+
+app.get('/login', (req, res) => {
+	res.render('login.ejs',{});
 });
 
 

@@ -75,6 +75,13 @@ app.get('/geldAnlegen', (req, res) => {
 	res.render('geldAnlegen.ejs',{});
 });
 
+app.post('/geldAnlegen', (req, res) => {
+	res.render('geldAnlegen.ejs',{ 
+		Betrag: 100
+	});
+});
+
+
 app.get('/login', (req, res) => {
 	res.render('login.ejs',{});
 });

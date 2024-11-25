@@ -6,8 +6,7 @@ h1{
 }
 
 h2{
-    font-family: Arial, Helvetica, sans-serif;
-    color: #9fa7a3;
+    font-family: Arial, Helvetica, sans-serif
 }
 
 p{
@@ -15,9 +14,10 @@ p{
 }
 
 footer{
-    background-color: rgb(109, 104, 104);
+    background-color: rgb(109, 105, 105);
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    color: white;
 }
 
 header{
@@ -42,10 +42,24 @@ eine Class wird in der styles.css immer mit einem führenden Punkt dargestellt.*
   }
   /* Der folgende Style wirkt auf ale DIVs innerhalb eines flex-containers*/
   .flex-container > div {
-    background-color: #acb3af;
+    background-color: rgb(109, 105, 105);
     width: 100%;
     margin: 10px;
     text-align: center;
     line-height: 75px;
     font-size: 30px;
+  }
+
+
+  label{
+    color: #454746;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  button{
+    background-color: #c7a2c5;
+    border: none;
+  }
+  main{
+    text-align: center;
   }

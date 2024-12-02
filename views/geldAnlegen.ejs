@@ -32,7 +32,8 @@
             <label>Gewünschter Betrag in Euro</label></br> 
             <!--Das Eingabefeld hat den Type Number, womit die Eingabe von Zahlen erzwungen wird-->
             <!--Der Name lautet Betrag. Der Server greift über den Namen auf das Input zu.-->
-            <input type="number" name="Betrag" value=<%= Betrag%>></br> 
+            <input type="number" name="Betrag" value=<%= Betrag%>></br>
+            <!--Die formfactionlegt fest, dass auf dem Server die app.post abgearbeitet wir, sobald der Kunde den Button drückt.-->
             <label>Gewünschte Laufzeit in Jahren</label></br> 
             <input type="number" name="Laufzeit"></br> 
             <button type="submit" formaction ="/geldAnlegen">Zinsen berechnen</button>
@@ -40,6 +41,7 @@
 
         
         </form>
+        <p><%= Meldung%></p>
 
 
 

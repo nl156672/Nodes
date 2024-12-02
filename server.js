@@ -4,8 +4,11 @@
  *--------------------------------------------------------------------------------------------*/
 
 'use strict';
-
+// Das Modul express wird mit der Funktion require einer Konstanten namens express zugewiesen.
 const express = require('express');
+
+
+const bodyParser = require('express');
 
 // Die Anweisungen werden von oben nach unten abgearbeitet. Der Wert 3000 wird von rechts nach links 
 // zugewiesen an die Konstante namens PORT. Das einfache Gleichheitszeichen lässt sich also übersetzen
@@ -21,7 +24,10 @@ const app = express();
 
 // Es wird der App bekanntgegeben, wo die styles zu finden sind.
 app.use(express.static('public'))
+app.set('view engine', 'ejs')
+app.use(bodyParser.urlencoded({extended: true}))
 
+// Der Bodyparser wird in der App eingebunden.
 
 
 app.get('/', (req, res) => {
@@ -71,13 +77,45 @@ app.get('/ueberweisungAusfuehren', (req, res) => {
 	res.render('ueberweisungAusfuehren.ejs',{});
 });
 
+
+// Die Funktion app.get('/geldAnlegen...) wird abgearbeitet, wenn der Benutzer die Seite geldAnlegen im Browser ansurft.
+
 app.get('/geldAnlegen', (req, res) => {
-	res.render('geldAnlegen.ejs',{});
+
+   // Die Serverantwort an den Browser wird gerendert an den Browser zurückgegeben 
+
+
+	res.render('geldAnlegen.ejs',{
+		
+		// In der geldAnlegen.ejs gibt es die variablen Betrag und Laufzeit
+	    // Der Server übergibt die folgenden Werte an den Server:
+
+	Betrag: 120,
+	Laufzeit:2,
+	Meldung:
+    });
 });
+	
 
 app.post('/geldAnlegen', (req, res) => {
+
+	// Der Wert der Variablen Betrag wird aus dem Body Kundenanfrage (req) ausgelesen und zugewiesen
+
+    let betrag = req.body.Betrag;
+	console.log("geldAnlegen: Gewünschter Betrag: " + betrag + " Euro")
+    let laufzeit = req.body.Laufzeit;
+	console.log("geldAnlegen : Gewünschte Laufzeit: " + laufzeit + " Jahre")
+    
+	let zinssatz = 0.1 
+    
+	let zinsen = betrag * zinssatz;
+
+
 	res.render('geldAnlegen.ejs',{ 
-		Betrag: 100
+		Betrag: betrag,
+		Laufzeit: laufzeit, 
+		Meldung: "Ihre Zinsen betragen: " + zinsen 
+
 	});
 });
 

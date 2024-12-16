@@ -15,15 +15,17 @@
         <h1>Herzlich Willkommen bei der Borken-Bank</h1>
     </header>
     <!--Formularfelder (Textboxen, Button etc.) müssen in form-Tags eingebettet werden-->
-    <form>
+    <form method="post">
         <!--Die Labels beschreiben die Textboxen. br bricht die Zeile um.-->
         <label>Benutzername</label><br>
-        <input><br>
+        <input name="Benutzername"><br>
         <label>Kennwort</label><br>
-        <input type="password"><br>
-        <button>Einloggen</button>
+        <input type="password" name="Kennwort"><br>
+        <!--type password maskiert die Eingabe mit Sternchen-->
+        <button type="submit" formaction ="/login">Einloggen</button>
     </form>
-Besuchen Sie gerne unsere Homepage.
+
+    <p><%= Meldung%></p>
 
 
         <footer>

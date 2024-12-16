@@ -1,7 +1,18 @@
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
+class Kunde{
+	constructor(){
+		this.Nachname
+		this.Vorname
+		this.Kennwort
+		this.benutzername
+	}
+}
+	let kunde = new Kunde();
+	kunde.Nachname = "Kiff"
+	kunde.Vorname = "Pit"
+	kunde.Benutzername = "pk"
+	kunde.Kennwort = "123" 
+
+
 
 'use strict';
 // Das Modul express wird mit der Funktion require einer Konstanten namens express zugewiesen.
@@ -92,7 +103,7 @@ app.get('/geldAnlegen', (req, res) => {
 
 	Betrag: 120,
 	Laufzeit:2,
-	Meldung:
+	Meldung: ""
     });
 });
 	
@@ -121,7 +132,36 @@ app.post('/geldAnlegen', (req, res) => {
 
 
 app.get('/login', (req, res) => {
-	res.render('login.ejs',{});
+	res.render('login.ejs',{
+		Meldung: "Alles easy."
+	});
+});
+
+app.post('/login', (req, res) => {
+
+
+    let benutzername = req.body.Benutzername;
+	console.log("login: Benutzername: " + benutzername)
+
+    let kennwort = req.body.Kennwort;
+	console.log("login : Kennwort: " + kennwort)
+
+    // es muss geprüft werden ob der Kunde mit diesem Benutzernamen das richtige Kennwort eingegebebn hat
+
+    if(kunde.Benutzername == benutzername && kunde.Kennwort == kennwort){
+		console.log("Die Zugantgsdaten wurden korrekt eingegeben")
+	}else{
+		console.log("Die Zugangsdaten wurden NICHT korrekt eingegeben")
+		meldung = "Die Zugangsdaten wurden NICHT korrekt eingegeben"
+	}
+
+
+
+	res.render('login.ejs',{ 
+	
+		Meldung: "Sie wurden erfolgreich angemeldet"
+
+	});
 });
 
 

@@ -22,6 +22,19 @@
     </header>
     <main>
         <H1>Kredit beantragen</H1>
+
+        <form method="post">
+            <label>Gewünschter Betrag in Euro</label></br>
+            <input type="number" min="0" name="Betrag" value=<%= Betrag %>></br>
+            <label>Gewünschter Zinssatz</label></br>
+            <input type="number" min="0" name="Zinssatz" value=<%= Zinssatz %>></br>
+            <label>Gewünschte Laufzeit</label></br>
+            <input type="number" min="0" name="Laufzeit" value=<%= Laufzeit %>></br>
+            <button type="submit" formaction="/kreditBeantragen">Kredit berechnen</button>
+        </form>
+
+        <p><%= Meldung %></p>
+
     </main>
 
     <footer>

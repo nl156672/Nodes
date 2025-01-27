@@ -16,6 +16,7 @@ class Kunde{
 	kunde.Benutzername = "pk"
 	kunde.Kennwort = "123" 
 	kunde.IstEingeloggt = false
+	// IstEingeloggt ist ein boolean, der Wert ist entweder true (wahr) oder false (falsch)
 
 // Klassendefinition des Kundenberaters
 	class Kundenberater{
@@ -46,9 +47,17 @@ const express = require('express');
 
 const bodyParser = require('express');
 
+
+// Der Cookieparser ist für die Verarbeitung der Cookies unserer App zuständig
+//Mit dem Cookie parser
+const cookieParser = require('cookie-parser')
+
+
+
 // Die Anweisungen werden von oben nach unten abgearbeitet. Der Wert 3000 wird von rechts nach links 
 // zugewiesen an die Konstante namens PORT. Das einfache Gleichheitszeichen lässt sich also übersetzen
 // mit "... wird zugewiesen an ..."
+
 const PORT = 3000;
 
 // Der Wert '0.0.0.0' wird zugewiesen an eine Konstante namens HOST 
@@ -61,9 +70,15 @@ const app = express();
 // Es wird der App bekanntgegeben, wo die styles zu finden sind.
 app.use(express.static('public'))
 app.set('view engine', 'ejs')
-app.use(bodyParser.urlencoded({extended: true}))
 
+app.use(bodyParser.urlencoded({extended: true}))
 // Der Bodyparser wird in der App eingebunden.
+
+// Der Cookie Parser wird in die App mit eingebunden
+// Cookies können verchlüsselt im Browser abgelegt werden. Dadurch kann ein Browser ein gespeichertes Kennwort nicht mehr ausgelesen werden.
+// Nur unsere App kann den verschlüsselten Cookie verwenden. Dazu wird das secret geheim 'genutzt'
+app.use(cookieParser())
+
 
 // die app.get wird abgearbeitet,sobald die Index-Seite angesurft wird.
 app.get('/', (req, res) => {
@@ -112,7 +127,7 @@ app.get('/agb', (req, res) => {
 
 	// Der Server gibt die gerenderte EJS-Seite an den 
 	// Browser zurück.
-});
+
 
 app.get('/hilfe', (req, res) => {
 
@@ -127,7 +142,6 @@ app.get('/hilfe', (req, res) => {
         res.render('login.ejs',{
 			Meldung: "Melden Sie sich zuerst an."
 		});
-});
 
 app.get('/kontouebersicht', (req, res) => {
 
@@ -254,10 +268,11 @@ app.get('/login', (req, res) => {
 // Die app.post wird abgearbeitet, wenn das Formular auf der Seite abgesendet wird
 app.post('/login', (req, res) => {
 
-
+    // Der Benutzername wird vom Browser an den Server übergeben.
     let benutzername = req.body.Benutzername;
 	console.log("login: Benutzername: " + benutzername)
-
+    
+	// Das Kenwort wird vom Browser an den Server übergeben.
     let kennwort = req.body.Kennwort;
 	console.log("login : Kennwort: " + kennwort)
 
@@ -268,7 +283,14 @@ app.post('/login', (req, res) => {
     if(kunde.Benutzername == benutzername && kunde.Kennwort == kennwort){
 		console.log("Die Zugantgsdaten wurden korrekt eingegeben")
         meldung = "Die Zugangsdaten wurden korrekt eingegeben"
+		
 		kunde.IstEingeloggt = true;
+		console.log("kunde.IstEingeloggt: + kunde.IstEingeloggt")
+
+        //ein Cookie wird gesetzt 
+		//res.cookie('name', 'John Doe', {maxAge: 900000, httpOnly: true});
+
+		//ein Cookie wird gelöscht
 
 
 		// Wenn die Eingabedaten korrekt eingegeben sind, dann wird die Index-Seite gerendert 

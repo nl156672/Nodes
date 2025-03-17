@@ -70,6 +70,20 @@ const bodyParser = require('express');
 const cookieParser = require('cookie-parser')
 
 
+// Die Bibilothek email-validator prüft E-Mails auf syntaktische Fehler
+// Die Anforderungen sind exakt festgelegt im RFC 5322
+const validator = require("email-validator")
+
+// Die Funktion validate wird auf das Vaolidator_Objekt aufgerufen
+// Als Parameter wird eine Mail-Adresse an die Funktion übergeben 
+// Der Rückgabewertder Funktion ist false oder true 
+validator.validate ("test@email.com"); // true 
+
+if(validator.validate("stefan.bauemer@berufskolleg-borken.de")){
+	console.log("Gültige EMail")
+}else{
+	console.log("Ungültige E-Mail")
+}
 
 
 // Die Anweisungen werden von oben nach unten abgearbeitet. Der Wert 3000 wird von rechts nach links 
@@ -261,7 +275,35 @@ app.get('/geldAnlegen', (req, res) => {
 	Meldung: ""
     });
 });
+
+
 	
+app.post('/profil', (req, res) => {
+
+	if(kunde.IstEingeloggt){
+		
+		let email = req.body.Email
+
+		if(validator.validate(email)){
+			console.log("Gültige EMail")
+			meldung = "EMail Adresse ist gültig"
+			kunde.Mail = email;
+
+
+
+		}else{
+			console.log("Ungültige E-Mail")
+			meldung = "EMail Adresse ist ungültig"
+		}
+	}
+    
+	res.render('profil.ejs', {
+		Meldung: meldung
+		Email: kunde.Mail
+	});
+
+
+
 
 app.post('/geldAnlegen', (req, res) => {
 

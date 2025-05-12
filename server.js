@@ -1,3 +1,70 @@
+const db = new sqlite3.Database('./banking.db', (err) => {
+    if (err) {
+        console.error('Fehler beim Öffnen der Datenbank:', err.message);
+    } else {
+        console.log('Verbindung zur SQLite-Datenbank hergestellt.');
+    }
+});
+
+// Tabelle "Kunde" erstellen
+// Tabellen werden angelegt mit dem Befehl Create Table
+// IF NOT EXIST sorgt dafür, dass die Tabelle nur einmal angelegt wird
+// Primary Key ist der Primärschlüssel der Tabelle. Der Primärschlüssel ist dasjenige 
+// Attribut, das den Datensatz eindeutig identifiziert
+// 
+
+
+
+
+db.serialize(() => {
+    db.run(`
+        CREATE TABLE IF NOT EXISTS Kunde (
+            Kundennummer INTEGER PRIMARY KEY AUTOINCREMENT,
+            Nachname TEXT NOT NULL,
+            Vorname TEXT NOT NULL,
+            Wohnort TEXT NOT NULL,
+            PLZ TEXT NOT NULL,
+            Strasse TEXT NOT NULL,
+            Kennwort TEXT NOT NULL,
+            Benutzername TEXT NOT NULL UNIQUE
+        )
+    `
+
+
+
+	// Beispielkunden einfügen
+	// Mit INSERT INTO wird ein Datensatz in die Tabelle eingefügt
+	// VALUES gibt die Werter an, die in die Tabelle eingefügt werden 
+	
+	const insertStmt = `
+        INSERT INTO Kunde (Nachname, Vorname, Wohnort, PLZ, Strasse, Kennwort, Benutzername)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+    `;
+    db.run(insertStmt, ['Müller', 'Max', 'Berlin', '10115', 'Hauptstraße 1', 'passwort123', 'maxm'], (err) => {
+        if (err) {
+            console.error('Fehler beim Einfügen des Beispielkunden:', err.message);
+        } else {
+            console.log('Beispielkunde erfolgreich hinzugefügt.');
+        }
+    });
+
+// Alle Kunden aus der Tabelle "Kunde" abfragen
+    db.all("SELECT *FROM KUNDE", (err, rows) => {
+		if (err) {
+			console.error("Fehler beim Auslesen der Kunden:", err.message);
+		}else{
+			console.log("Alle Kunden in der Datenbank:", )
+		}
+	})
+
+
+
+
+
+
+
+
+
 
 // Klassendefinition des Kundens 
 class Kunde{
